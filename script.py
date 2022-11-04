@@ -43,7 +43,7 @@ top_5_quotes = top_5_quotes.reset_index(drop=True)
 ranked_df = df.sort_values(by=['Amount'], ascending=False)
 ranked_df = ranked_df.drop_duplicates(subset=['Name'])
 
-
+### -- Needs to be updated with new logic to use dicts and loop these for cleaner code
 ### ----- Quotes Rankings for Email Table
 
 doc_1 = top_5_quotes.iloc[0]['Document Number']
