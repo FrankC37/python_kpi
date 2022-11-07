@@ -8,4 +8,4 @@ Parses with Pandas
 
 Emails out in HTML via Gmail using app password
 
-Passwords must be stored in ENV variables
+Sharepoint Path and  Email Passwords must be stored in ENV variables on a windows machine
