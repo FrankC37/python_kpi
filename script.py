@@ -16,7 +16,7 @@ import datetime as DT
 locale.setlocale(locale.LC_ALL,'')
 
 ### ----- Path Definitions
-# make enviroment variable like -> "C:/Users/Frank/USA Sealing. INC/USA Sealing. INC Team Site - Documents/pythonData/"
+# make enviroment variable like -> "C:\Users\Frank\USA Sealing. INC\USA Sealing. INC Team Site - Documents\pythonData"
 spPathFromEnv = os.environ.get('Sharepoint pydata')
 quote_kpi_file = spPathFromEnv + '\customsearch_usas_python_quote_summary.csv'
 
