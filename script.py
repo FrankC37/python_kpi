@@ -16,7 +16,7 @@ import datetime as DT
 locale.setlocale(locale.LC_ALL,'')
 
 ### ----- Path Definitions
-sp_prefix = r"C:/Users/Frank/USA Sealing. INC/USA Sealing. INC Team Site - Documents/pythonData/"
+sp_prefix = r"C:/Users/fconiglio/USA Sealing. INC/USA Sealing. INC Team Site - Documents/pythonData/"
 quote_kpi_file = sp_prefix + 'customsearch_usas_python_quote_summary.csv'
 
 ### ----- Checking Paths
@@ -74,11 +74,11 @@ unq_amt_5 = locale.currency(raw_amt_5,grouping=True)
 # make sure your system has the eviroment variables setup
 email_sender = os.environ.get('usas_email')
 email_password = os.environ.get('usas_gmail_app_pw')
-email_receiver = ['frank.coniglio@usasealing.com']
-
+email_receiver = ['patrick.kloster@usasealing.com','brendan.harrington@usasealing.com','evan.walsh@usasealing.com','dylan.begany@usasealing.com','john.cherwonik@usasealing.com','chase.sorrentino@usasealing.com','pete.smith@usasealing.com']
+# sales_team = [['patrick.kloster@usasealing.com','brendan.harrington@usasealing.com','evan.walsh@usasealing.com','dylan.begany@usasealing.com','john.cherwonik@usasealing.com','chase.sorrentino@usasealing.com','pete.smith@usasealing.com']]
 ### ----- Time Variables
 week_of = date.today()
-adjusted_week_of = week_of -DT.timedelta(days=8)
+adjusted_week_of = week_of -DT.timedelta(days=7)
 
 
 ### ----- Email Content
@@ -204,7 +204,7 @@ em.add_alternative(
 </br>
 </br>
 </br>
-<p>This KPI utilizes Netsuite at the source of truth. </br><a href="https://4535487.app.netsuite.com/app/common/search/searchresults.nl?searchid=3080&whence=">USAS Quotes this week</a><p>
+<p>This KPI utilizes Netsuite at the source of truth. </br><a href="https://4535487.app.netsuite.com/app/common/search/searchresults.nl?searchid=3127&whence=">USAS - Weekly Quotes KPI</a><p>
 </body>
 </html>
 """,
