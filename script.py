@@ -16,8 +16,15 @@ import datetime as DT
 locale.setlocale(locale.LC_ALL,'')
 
 ### ----- Path Definitions
+<<<<<<< HEAD
 sp_prefix = r"C:/Users/fconiglio/USA Sealing. INC/USA Sealing. INC Team Site - Documents/pythonData/"
 quote_kpi_file = sp_prefix + 'customsearch_usas_python_quote_summary.csv'
+=======
+# make enviroment variable like -> "C:\Users\Frank\USA Sealing. INC\USA Sealing. INC Team Site - Documents\pythonData"
+spPathFromEnv = os.environ.get('Sharepoint pydata')
+quote_kpi_file = spPathFromEnv + '\customsearch_usas_python_quote_summary.csv'
+
+>>>>>>> a1f5302ac19433d96dee9c909490fd9c16bd0846
 
 ### ----- Checking Paths
 df = pd.read_csv(quote_kpi_file)
@@ -40,35 +47,25 @@ ranked_df = ranked_df.head(5)
 docNumbers = top_5_quotes['Document Number'].values.tolist()
 customers = top_5_quotes['Name'].values.tolist()
 salesRep = top_5_quotes['Sales Rep'].values.tolist()
+quoteAmount = top_5_quotes['Amount'].values.tolist()
 
-# includes conversions to show as USD
-raw_amt_1 = top_5_quotes.iloc[0]['Amount']
-amt_1 = locale.currency(raw_amt_1,grouping=True)
-raw_amt_2 = top_5_quotes.iloc[1]['Amount']
-amt_2 = locale.currency(raw_amt_2,grouping=True)
-raw_amt_3 = top_5_quotes.iloc[2]['Amount']
-amt_3 = locale.currency(raw_amt_3,grouping=True)
-raw_amt_4 = top_5_quotes.iloc[3]['Amount']
-amt_4 = locale.currency(raw_amt_4,grouping=True)
-raw_amt_5 = top_5_quotes.iloc[4]['Amount']
-amt_5 = locale.currency(raw_amt_5,grouping=True)
+#convert list to USD
+for i in range(len(quoteAmount)):
+  xi = locale.currency(quoteAmount[i],grouping=True)
+  quoteAmount.remove(quoteAmount[i])
+  quoteAmount.insert(i,xi)
 
 ### ----- Customer Rankings for Email Table
 uniqueDocuments = ranked_df['Document Number'].values.tolist()
 uniqueCustomers = ranked_df['Name'].values.tolist()
 uniqueSalesRep = ranked_df['Sales Rep'].values.tolist()
+uniqueQuoteAmount = ranked_df['Amount'].values.tolist()
 
-# includes conversions to show as USD
-unq_raw_amt_1 = ranked_df.iloc[0]['Amount']
-unq_amt_1 = locale.currency(raw_amt_1,grouping=True)
-unq_raw_amt_2 = ranked_df.iloc[1]['Amount']
-unq_amt_2 = locale.currency(raw_amt_2,grouping=True)
-unq_raw_amt_3 = ranked_df.iloc[2]['Amount']
-unq_amt_3 = locale.currency(raw_amt_3,grouping=True)
-unq_raw_amt_4 = ranked_df.iloc[3]['Amount']
-unq_amt_4 = locale.currency(raw_amt_4,grouping=True)
-unq_raw_amt_5 = ranked_df.iloc[4]['Amount']
-unq_amt_5 = locale.currency(raw_amt_5,grouping=True)
+#convert list to USD
+for i in range(len(uniqueQuoteAmount)):
+  yi = locale.currency(uniqueQuoteAmount[i],grouping=True)
+  uniqueQuoteAmount.remove(uniqueQuoteAmount[i])
+  uniqueQuoteAmount.insert(i,yi)
 
 ### ----- Email Variables
 # make sure your system has the eviroment variables setup
@@ -128,31 +125,31 @@ em.add_alternative(
   <tr>
     <td align='center'>{docNumbers[0]}</td>
     <td align='center'>{customers[0]}</td>
-    <td align='center'>{amt_1}</td>
+    <td align='center'>{quoteAmount[0]}</td>
     <td align='center'>{salesRep[0]}</td>
   </tr>
   <tr>
     <td align='center'>{docNumbers[1]}</td>
     <td align='center'>{customers[1]}</td>
-    <td align='center'>{amt_2}</td>
+    <td align='center'>{quoteAmount[1]}</td>
     <td align='center'>{salesRep[1]}</td>
   </tr>
     <tr>
     <td align='center'>{docNumbers[2]}</td>
     <td align='center'>{customers[2]}</td>
-    <td align='center'>{amt_3}</td>
+    <td align='center'>{quoteAmount[2]}</td>
     <td align='center'>{salesRep[2]}</td>
   </tr>
     <tr>
     <td align='center'>{docNumbers[3]}</td>
     <td align='center'>{customers[3]}</td>
-    <td align='center'>{amt_4}</td>
+    <td align='center'>{quoteAmount[3]}</td>
     <td align='center'>{salesRep[3]}</td>
   </tr>
     <tr>
     <td align='center'>{docNumbers[4]}</td>
     <td align='center'>{customers[4]}</td>
-    <td align='center'>{amt_5}</td>
+    <td align='center'>{quoteAmount[4]}</td>
     <td align='center'>{salesRep[4]}</td>
   </tr>
   </tbody>
@@ -172,31 +169,31 @@ em.add_alternative(
   <tr>
     <td align='center'>{uniqueDocuments[0]}</td>
     <td align='center'>{uniqueCustomers[0]}</td>
-    <td align='center'>{unq_amt_1}</td>
+    <td align='center'>{uniqueQuoteAmount[0]}</td>
     <td align='center'>{uniqueSalesRep[0]}</td>
   </tr>
   <tr>
     <td align='center'>{uniqueDocuments[1]}</td>
     <td align='center'>{uniqueCustomers[1]}</td>
-    <td align='center'>{unq_amt_2}</td>
+    <td align='center'>{uniqueQuoteAmount[1]}</td>
     <td align='center'>{uniqueSalesRep[1]}</td>
   </tr>
     <tr>
     <td align='center'>{uniqueDocuments[2]}</td>
     <td align='center'>{uniqueCustomers[2]}</td>
-    <td align='center'>{unq_amt_3}</td>
+    <td align='center'>{uniqueQuoteAmount[2]}</td>
     <td align='center'>{uniqueSalesRep[2]}</td>
   </tr>
     <tr>
     <td align='center'>{uniqueDocuments[3]}</td>
     <td align='center'>{uniqueCustomers[3]}</td>
-    <td align='center'>{unq_amt_4}</td>
+    <td align='center'>{uniqueQuoteAmount[3]}</td>
     <td align='center'>{uniqueSalesRep[3]}</td>
   </tr>
     <tr>
     <td align='center'>{uniqueDocuments[4]}</td>
     <td align='center'>{uniqueCustomers[4]}</td>
-    <td align='center'>{unq_amt_5}</td>
+    <td align='center'>{uniqueQuoteAmount[4]}</td>
     <td align='center'>{uniqueSalesRep[4]}</td>
   </tr>
   </tbody>
