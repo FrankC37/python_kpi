@@ -16,15 +16,10 @@ import datetime as DT
 locale.setlocale(locale.LC_ALL,'')
 
 ### ----- Path Definitions
-<<<<<<< HEAD
-sp_prefix = r"C:/Users/fconiglio/USA Sealing. INC/USA Sealing. INC Team Site - Documents/pythonData/"
-quote_kpi_file = sp_prefix + 'customsearch_usas_python_quote_summary.csv'
-=======
 # make enviroment variable like -> "C:\Users\Frank\USA Sealing. INC\USA Sealing. INC Team Site - Documents\pythonData"
 spPathFromEnv = os.environ.get('Sharepoint pydata')
 quote_kpi_file = spPathFromEnv + '\customsearch_usas_python_quote_summary.csv'
 
->>>>>>> a1f5302ac19433d96dee9c909490fd9c16bd0846
 
 ### ----- Checking Paths
 df = pd.read_csv(quote_kpi_file)
