@@ -66,7 +66,7 @@ for i in range(len(uniqueQuoteAmount)):
 # make sure your system has the eviroment variables setup
 email_sender = os.environ.get('usas_email')
 email_password = os.environ.get('usas_gmail_app_pw')
-email_receiver = ['patrick.kloster@usasealing.com','brendan.harrington@usasealing.com','evan.walsh@usasealing.com','dylan.begany@usasealing.com','john.cherwonik@usasealing.com','chase.sorrentino@usasealing.com','pete.smith@usasealing.com']
+email_receiver = ['patrick.kloster@usasealing.com','brendan.harrington@usasealing.com','evan.walsh@usasealing.com','dylan.begany@usasealing.com','john.cherwonik@usasealing.com','chase.sorrentino@usasealing.com','pete.smith@usasealing.com','randy.gotham@usasealing.com']
 # sales_team = [['patrick.kloster@usasealing.com','brendan.harrington@usasealing.com','evan.walsh@usasealing.com','dylan.begany@usasealing.com','john.cherwonik@usasealing.com','chase.sorrentino@usasealing.com','pete.smith@usasealing.com']]
 ### ----- Time Variables
 week_of = date.today()
