@@ -67,7 +67,7 @@ for i in range(len(uniqueQuoteAmount)):
 email_sender = os.environ.get('usas_email')
 email_password = os.environ.get('usas_gmail_app_pw')
 email_receiver = ['patrick.kloster@usasealing.com','brendan.harrington@usasealing.com','evan.walsh@usasealing.com','dylan.begany@usasealing.com','john.cherwonik@usasealing.com','chase.sorrentino@usasealing.com','pete.smith@usasealing.com','randy.gotham@usasealing.com','william.larkin@usasealing.com']
-# sales_team = [['patrick.kloster@usasealing.com','brendan.harrington@usasealing.com','evan.walsh@usasealing.com','dylan.begany@usasealing.com','john.cherwonik@usasealing.com','chase.sorrentino@usasealing.com','pete.smith@usasealing.com']]
+# sales_team = [['patrick.kloster@usasealing.com','brendan.harrington@usasealing.com','evan.walsh@usasealing.com','dylan.begany@usasealing.com','john.cherwonik@usasealing.com','chase.sorrentino@usasealing.com','pete.smith@usasealing.com','randy.gotham@usasealing.com','william.larkin@usasealing.com']]
 ### ----- Time Variables
 week_of = date.today()
 adjusted_week_of = week_of -DT.timedelta(days=7)
@@ -76,7 +76,7 @@ adjusted_week_of = week_of -DT.timedelta(days=7)
 ### ----- Email Content
 subject = f"USAS Quotes KPI for the week of {adjusted_week_of}."
 body = """
-Still in Testing,looking for feedback =)
+
 
 """
 ### ----- Email Class Definitions
